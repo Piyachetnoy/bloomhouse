@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Partners from "./Partners";
+import type { Dictionary } from "@/app/[lang]/dictionaries";
 
-export default function About() {
+interface AboutProps {
+  dict: Dictionary;
+}
+
+export default function About({ dict }: AboutProps) {
   return (
     <section id="about" className="w-full py-20 bg-[#1A1A1A] text-white overflow-hidden">
       <div className="px-6 md:px-12 lg:px-20">
@@ -9,17 +14,17 @@ export default function About() {
         <div className="mb-16 md:mb-24 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
           <div className="max-w-4xl">
             <span className="block text-xs font-medium tracking-[0.2em] uppercase text-zinc-500 mb-4">
-              About Us
+              {dict.about.label}
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-tight">
-              Bloomhouse is a digital design studio crafting timeless experiences.
+              {dict.about.title}
               <span className="text-zinc-500 block mt-2">
-                Less noise, more signal.
+                {dict.about.subtitle}
               </span>
             </h2>
           </div>
           
-          <div className="w-full lg:w-[800px] shrink-0 pb-2">
+          <div className="w-full md:w-[400px] shrink-0 pb-2">
             <Partners />
           </div>
         </div>
@@ -30,19 +35,13 @@ export default function About() {
           <div className="lg:col-span-8 space-y-8">
             <div className="space-y-6">
               <p className="text-zinc-400 leading-relaxed font-light text-base">
-                Bloomhouse is a specialized digital design studio that operates on a simple philosophy: 
-                direct connection yields the best results. We cut through the layers of bureaucracy typical 
-                of larger agencies to deliver uncompromising quality and agility.
+                {dict.about.description1}
               </p>
               <p className="text-zinc-400 leading-relaxed font-light text-base">
-                When you work with Bloomhouse, you're not passed down to a junior designer or lost in a chain of command. 
-                You work directly with the creative lead—from the first sketch to the final line of code. This ensures 
-                a vision that stays pure throughout the entire process.
+                {dict.about.description2}
               </p>
               <p className="text-zinc-400 leading-relaxed font-light text-base">
-                We believe in less noise, more signal. Every pixel, every interaction, every decision is intentional. 
-                Our approach combines minimal design principles with cutting-edge technology to craft digital experiences 
-                that transcend boundaries and elevate brands.
+                {dict.about.description3}
               </p>
             </div>
 
@@ -50,19 +49,19 @@ export default function About() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-white/10">
               <div>
                 <span className="block text-3xl font-light text-white mb-1">100%</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-zinc-500">Dedication</span>
+                <span className="text-xs tracking-[0.2em] uppercase text-zinc-500">{dict.about.stats.dedication}</span>
               </div>
               <div>
                 <span className="block text-3xl font-light text-white mb-1">1:1</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-zinc-500">Collaboration</span>
+                <span className="text-xs tracking-[0.2em] uppercase text-zinc-500">{dict.about.stats.collaboration}</span>
               </div>
               <div>
                 <span className="block text-3xl font-light text-white mb-1">∞</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-zinc-500">Possibilities</span>
+                <span className="text-xs tracking-[0.2em] uppercase text-zinc-500">{dict.about.stats.possibilities}</span>
               </div>
               <div>
                 <span className="block text-3xl font-light text-white mb-1">0</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-zinc-500">Compromise</span>
+                <span className="text-xs tracking-[0.2em] uppercase text-zinc-500">{dict.about.stats.compromise}</span>
               </div>
             </div>
           </div>
@@ -83,7 +82,7 @@ export default function About() {
               </div>
               <div className="text-center lg:text-left">
                 <p className="text-white font-medium tracking-wide mb-1">Piyachetnoy</p>
-                <p className="text-sm text-zinc-500">Founder & Lead Developer</p>
+                <p className="text-sm text-zinc-500">{dict.about.founder}</p>
               </div>
             </div>
           </div>

@@ -1,16 +1,20 @@
-import Link from 'next/link';
+import type { Dictionary } from "@/app/[lang]/dictionaries";
 
-export default function Problems() {
+interface ProblemsProps {
+  dict: Dictionary;
+}
+
+export default function Problems({ dict }: ProblemsProps) {
   return (
     <section id="problems" className="w-full py-20 bg-[#1A1A1A] text-white overflow-hidden">
       <div className="px-6 md:px-12 lg:px-20">
         {/* Section Header */}
         <div className="mb-16 md:mb-24">
           <span className="block text-xs font-medium tracking-[0.2em] uppercase text-zinc-500 mb-4">
-            Challenges
+            {dict.problems.label}
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-tight max-w-4xl text-white">
-            The gap between <span className="text-zinc-500">potential</span> and <span className="text-zinc-500">reality</span>.
+            {dict.problems.title} <span className="text-zinc-500">{dict.problems.potential}</span> {dict.problems.and} <span className="text-zinc-500">{dict.problems.reality}</span>.
           </h2>
         </div>
 
@@ -36,15 +40,15 @@ export default function Problems() {
                   85%
                 </span>
                 <span className="text-sm tracking-widest uppercase text-zinc-500">
-                  Efficiency Gap
+                  {dict.problems.card1.label}
                 </span>
               </div>
               
               <h3 className="text-xl font-light text-zinc-200 mb-4">
-                The Cost of Disconnection
+                {dict.problems.card1.title}
               </h3>
               <p className="text-zinc-400 font-light leading-relaxed">
-                Research indicates that fragmented workflows result in significant operational loss. We architect ecosystems that restore continuity.
+                {dict.problems.card1.description}
               </p>
             </div>
             
@@ -55,7 +59,7 @@ export default function Problems() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm tracking-widest uppercase text-zinc-500 hover:text-white transition-colors duration-300 group/link"
               >
-                <span>Read Research</span>
+                <span>{dict.problems.card1.link}</span>
                 <svg className="ml-2 w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -77,21 +81,21 @@ export default function Problems() {
                  </div>
                  <div className="z-10 text-center">
                     <span className="block text-2xl mb-2">∞</span>
-                    <span className="text-[10px] tracking-[0.3em] uppercase text-zinc-500">The Paradox</span>
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-zinc-500">{dict.problems.card2.paradox}</span>
                  </div>
               </div>
 
               <h3 className="text-xl font-light text-zinc-200 mb-4">
-                More Data, Less Clarity?
+                {dict.problems.card2.title}
               </h3>
               <p className="text-zinc-400 font-light leading-relaxed">
-                In an era of infinite information, clarity is the rarest resource. We don't just visualize data; we extract the narrative, turning noise into signal.
+                {dict.problems.card2.description}
               </p>
             </div>
             
             <div className="mt-8 pt-4 border-t border-white/5">
               <span className="text-zinc-600 text-xs tracking-widest uppercase">
-                Signal over noise
+                {dict.problems.card2.signal}
               </span>
             </div>
           </div>

@@ -1,0 +1,162 @@
+{
+  "header": {
+    "about": "About",
+    "service": "Service",
+    "works": "Works",
+    "problems": "Problems",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "startProject": "Start Project"
+  },
+  "hero": {
+    "line1": "Solve business pains",
+    "line2": "with digital solutions."
+  },
+  "about": {
+    "label": "About Us",
+    "title": "Bloomhouse is a digital design studio crafting timeless experiences.",
+    "subtitle": "Less noise, more signal.",
+    "description1": "Bloomhouse is a specialized digital design studio that operates on a simple philosophy: direct connection yields the best results. We cut through the layers of bureaucracy typical of larger agencies to deliver uncompromising quality and agility.",
+    "description2": "When you work with Bloomhouse, you're not passed down to a junior designer or lost in a chain of command. You work directly with the creative lead—from the first sketch to the final line of code. This ensures a vision that stays pure throughout the entire process.",
+    "description3": "We believe in less noise, more signal. Every pixel, every interaction, every decision is intentional. Our approach combines minimal design principles with cutting-edge technology to craft digital experiences that transcend boundaries and elevate brands.",
+    "stats": {
+      "dedication": "Dedication",
+      "collaboration": "Collaboration",
+      "possibilities": "Possibilities",
+      "compromise": "Compromise"
+    },
+    "founder": "Founder & Lead Developer"
+  },
+  "problems": {
+    "label": "Challenges",
+    "title": "The gap between",
+    "potential": "potential",
+    "and": "and",
+    "reality": "reality",
+    "card1": {
+      "label": "Efficiency Gap",
+      "title": "The Cost of Disconnection",
+      "description": "Research indicates that fragmented workflows result in significant operational loss. We architect ecosystems that restore continuity.",
+      "link": "Read Research"
+    },
+    "card2": {
+      "title": "More Data, Less Clarity?",
+      "description": "In an era of infinite information, clarity is the rarest resource. We don't just visualize data; we extract the narrative, turning noise into signal.",
+      "paradox": "The Paradox",
+      "signal": "Signal over noise"
+    }
+  },
+  "service": {
+    "label": "Services",
+    "title": "What we do",
+    "items": {
+      "web": {
+        "title": "Web Development",
+        "description": "We design and develop modern websites that are not only beautiful — they work. From high-converting landing pages to eCommerce, we build responsive, high-performance websites tailored to your goals.",
+        "features": ["UI/UX Design", "Webflow, Shopify, Framer", "Responsive Design", "CMS Integration"]
+      },
+      "line": {
+        "title": "Line Automation",
+        "description": "Streamline your customer communication with intelligent Line automation. We build custom chatbots and workflow automations that save time and enhance user engagement.",
+        "features": ["Chatbot Development", "CRM Integration", "Automated Responses", "Rich Menu Design"]
+      },
+      "ios": {
+        "title": "iOS Application",
+        "description": "Native iOS applications crafted for performance and user experience. We leverage the latest Swift technologies to build intuitive apps that stand out in the App Store.",
+        "features": ["Native Development", "Swift & SwiftUI", "App Store Optimization", "Complex Integrations"]
+      }
+    }
+  },
+  "works": {
+    "label": "Selected Works",
+    "title": "Crafted with",
+    "purpose": "purpose",
+    "viewAll": "View All Works",
+    "items": {
+      "skinvolve": {
+        "category": "Branding & Web Design",
+        "description": "Reimagining skincare through a blend of heritage and modern science. A complete digital transformation."
+      },
+      "maisonOliva": {
+        "category": "E-commerce",
+        "description": "A minimalist shopping experience for a luxury furniture brand."
+      },
+      "veltoStudio": {
+        "category": "Portfolio",
+        "description": "Showcasing architectural excellence with immersive 3D interactions."
+      }
+    }
+  },
+  "pricing": {
+    "label": "Investment",
+    "title": "Simple, transparent",
+    "subtitle": "pricing for every stage.",
+    "tiers": {
+      "basic": {
+        "name": "Basic",
+        "price": "From $2,000",
+        "description": "Essential digital presence for startups and small businesses.",
+        "features": ["Responsive Website", "CMS Integration", "Basic SEO Setup", "Google Analytics", "2 Weeks Support"],
+        "cta": "Start Basic"
+      },
+      "premium": {
+        "name": "Premium",
+        "price": "From $5,000",
+        "description": "Complete brand transformation and advanced functionality.",
+        "features": ["Custom UI/UX Design", "Advanced Animations", "E-commerce Functionality", "Performance Optimization", "1 Month Support"],
+        "cta": "Go Premium"
+      },
+      "custom": {
+        "name": "Custom",
+        "price": "Variable",
+        "description": "Tailored enterprise solutions for complex requirements.",
+        "features": ["Full-Scale Application", "Custom Backend", "Third-party Integrations", "Dedicated Team", "Ongoing Maintenance"],
+        "cta": "Contact Us"
+      }
+    }
+  },
+  "contact": {
+    "label": "Get in Touch",
+    "title": "Let's start a",
+    "conversation": "conversation",
+    "replyTime": "We will reply within 2 business days.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Ex: John Doe",
+      "company": "Company",
+      "companyOptional": "(Optional)",
+      "companyPlaceholder": "Ex: Bloomhouse Inc.",
+      "phone": "Phone",
+      "phonePlaceholder": "Ex: 090-1234-5678",
+      "email": "Email",
+      "emailPlaceholder": "Ex: name@example.com",
+      "message": "Message",
+      "messageOptional": "(Optional)",
+      "messagePlaceholder": "Ex: I am interested in rebranding my company...",
+      "send": "Send Message"
+    },
+    "directLine": {
+      "title": "Direct Line",
+      "description": "For faster communication, feel free to reach out via LINE. We are available to answer your questions and discuss your projects.",
+      "addFriend": "Add Friends on LINE"
+    }
+  },
+  "footer": {
+    "cta": "Let's build something",
+    "extraordinary": "extraordinary together.",
+    "startProject": "Start Project",
+    "description": "Crafting digital experiences that transcend boundaries and elevate brands through minimal design and cutting-edge technology.",
+    "sitemap": "Sitemap",
+    "social": "Social",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "allRights": "All rights reserved.",
+    "systemsOperational": "All Systems Operational"
+  },
+  "languageSwitcher": {
+    "th": "ไทย",
+    "en": "English"
+  }
+}
+

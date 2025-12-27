@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Button } from "./ui/Button";
+import type { Dictionary, Locale } from "@/app/[lang]/dictionaries";
 
 function NavLink({ href, label }: { href: string; label: string }) {
   return (
@@ -15,7 +17,45 @@ function NavLink({ href, label }: { href: string; label: string }) {
   );
 }
 
-export default function Header() {
+function LanguageSwitcher({ lang, dict }: { lang: Locale; dict: Dictionary }) {
+  const pathname = usePathname();
+  
+  const switchLocale = (newLocale: Locale) => {
+    // Remove current locale from pathname and add new one
+    const segments = pathname.split('/');
+    segments[1] = newLocale;
+    return segments.join('/');
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      <Link
+        href={switchLocale('th')}
+        className={`text-xs font-medium tracking-wider transition-colors ${
+          lang === 'th' ? 'text-white' : 'text-white/50 hover:text-white/80'
+        }`}
+      >
+        {dict.languageSwitcher.th}
+      </Link>
+      <span className="text-white/30">|</span>
+      <Link
+        href={switchLocale('en')}
+        className={`text-xs font-medium tracking-wider transition-colors ${
+          lang === 'en' ? 'text-white' : 'text-white/50 hover:text-white/80'
+        }`}
+      >
+        {dict.languageSwitcher.en}
+      </Link>
+    </div>
+  );
+}
+
+interface HeaderProps {
+  dict: Dictionary;
+  lang: Locale;
+}
+
+export default function Header({ dict, lang }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -35,12 +75,9 @@ export default function Header() {
       <div className="px-6 md:px-12 lg:px-20">
         <div className="flex items-center justify-between">
           {/* Bold Logo */}
-          <Link href="/" className="group relative z-50">
-            <h1 className="text-2xl md:text-3xl font-light tracking-tight text-zinc-400 mix-blend-difference overflow-hidden">
+          <Link href={`/${lang}`} className="group relative z-50">
+            <h1 className="text-2xl md:text-3xl font-light tracking-tight text-white mix-blend-difference overflow-hidden">
               <span className="block transition-transform duration-500 group-hover:-translate-y-full">
-                BLOOMHOUSE
-              </span>
-              <span className="absolute top-[-99%] left-[1%] block translate-y-full transition-transform duration-500 group-hover:translate-y-0 text-white">
                 BLOOMHOUSE
               </span>
             </h1>
@@ -48,12 +85,15 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 lg:gap-12">
-            <NavLink href="#about" label="About" />
-            <NavLink href="#service" label="Service" />
-            <NavLink href="#works" label="Works" />
-            <NavLink href="#problems" label="Problems" />
-            <NavLink href="#pricing" label="Pricing" />
-            <NavLink href="#contact" label="Contact" />
+            <NavLink href="#about" label={dict.header.about} />
+            <NavLink href="#service" label={dict.header.service} />
+            <NavLink href="#works" label={dict.header.works} />
+            <NavLink href="#problems" label={dict.header.problems} />
+            <NavLink href="#pricing" label={dict.header.pricing} />
+            <NavLink href="#contact" label={dict.header.contact} />
+            
+            {/* Language Switcher */}
+            <LanguageSwitcher lang={lang} dict={dict} />
             
             {/* CTA Button */}
             <Button 
@@ -62,7 +102,7 @@ export default function Header() {
               size="default"
               className="ml-4"
             >
-              Start Project
+              {dict.header.startProject}
             </Button>
           </nav>
 
@@ -75,7 +115,7 @@ export default function Header() {
       </div>
       
       {/* Decorative Line (Optional, matches Hero accents) */}
-      <div className={`absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 ${scrolled ? 'w-full opacity-100' : 'w-0 opacity-0'}`} />
+      <div className={`absolute bottom-0 left-0 h-px bg-linear-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 ${scrolled ? 'w-full opacity-100' : 'w-0 opacity-0'}`} />
     </header>
   );
 }

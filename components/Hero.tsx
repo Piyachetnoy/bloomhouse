@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import type { Dictionary } from "@/app/[lang]/dictionaries";
 
 const images = [
   {
@@ -23,19 +24,28 @@ const images = [
   },
 ];
 
-const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&";
+const scrambleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ";
 
 function useTextScramble(text: string, delay: number = 0) {
   const [displayText, setDisplayText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
-    let interval: NodeJS.Timeout;
+    // Reset state on mount/remount
+    setDisplayText("");
+    setIsComplete(false);
+
+    let timeout: NodeJS.Timeout | undefined;
+    let interval: NodeJS.Timeout | undefined;
     let iteration = 0;
+    let isMounted = true;
 
     timeout = setTimeout(() => {
+      if (!isMounted) return;
+      
       interval = setInterval(() => {
+        if (!isMounted) return;
+
         setDisplayText(
           text
             .split("")
@@ -48,7 +58,7 @@ function useTextScramble(text: string, delay: number = 0) {
         );
 
         if (iteration >= text.length) {
-          clearInterval(interval);
+          if (interval) clearInterval(interval);
           setIsComplete(true);
         }
 
@@ -57,17 +67,22 @@ function useTextScramble(text: string, delay: number = 0) {
     }, delay);
 
     return () => {
-      clearTimeout(timeout);
-      clearInterval(interval);
+      isMounted = false;
+      if (timeout) clearTimeout(timeout);
+      if (interval) clearInterval(interval);
     };
   }, [text, delay]);
 
   return { displayText, isComplete };
 }
 
-export default function Hero() {
-  const line1 = useTextScramble("We craft digital", 300);
-  const line2 = useTextScramble("transcend boundaries.", 600);
+interface HeroProps {
+  dict: Dictionary;
+}
+
+export default function Hero({ dict }: HeroProps) {
+  const line1 = useTextScramble(dict.hero.line1, 300);
+  const line2 = useTextScramble(dict.hero.line2, 600);
 
   return (
     <section className="relative h-screen bg-[#1A1A1A] overflow-hidden">
@@ -77,12 +92,12 @@ export default function Hero() {
         <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-20">
           <h1 className="font-light tracking-tight text-white leading-[0.9] select-none">
             <span 
-              className="block text-[clamp(2.5rem,12vw,9rem)] opacity-0 animate-[fadeIn_0.6s_ease_forwards_0.3s]"
+              className="block text-[clamp(2rem,8vw,6rem)] opacity-0 animate-[fadeIn_0.4s_ease_forwards_0.2s]"
             >
               {line1.displayText}
             </span>
             <span 
-              className="block text-[clamp(2.5rem,12vw,9rem)] text-white opacity-0 animate-[fadeIn_0.6s_ease_forwards_0.6s]"
+              className="block text-[clamp(2rem,8vw,6rem)] text-white opacity-0 animate-[fadeIn_0.4s_ease_forwards_0.4s]"
             >
               {line2.displayText}
             </span>
@@ -108,7 +123,7 @@ export default function Hero() {
                     unoptimized
                   />
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </div>
             ))}
@@ -159,4 +174,3 @@ export default function Hero() {
     </section>
   );
 }
-
