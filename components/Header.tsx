@@ -75,7 +75,7 @@ export default function Header() {
       </div>
       
       {/* Decorative Line (Optional, matches Hero accents) */}
-      <div className={`absolute bottom-0 left-0 h-px bg-linear-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 ${scrolled ? 'w-full opacity-100' : 'w-0 opacity-0'}`} />
+      <div className={`absolute bottom-0 left-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 ${scrolled ? 'w-full opacity-100' : 'w-0 opacity-0'}`} />
     </header>
   );
 }

@@ -26,7 +26,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1A1A1A] text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
       {/* Decorative top line matching Header/Hero accents */}
-      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="px-6 md:px-12 lg:px-20">
         {/* Top Section: CTA and Main Info */}

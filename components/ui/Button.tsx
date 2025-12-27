@@ -37,9 +37,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       .join(" ");
 
     if (href) {
+      // Extract type from props to avoid passing it to Link
+      const { type, ...linkProps } = props;
       return (
-        <Link href={href} className={combinedClassName} target={props.target} rel={props.rel}>
-          {props.children}
+        <Link href={href} className={combinedClassName} target={linkProps.target} rel={linkProps.rel}>
+          {linkProps.children}
         </Link>
       );
     }

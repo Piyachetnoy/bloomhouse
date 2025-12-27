@@ -64,12 +64,12 @@ export default function Pricing() {
               key={index}
               className={`flex flex-col justify-between p-8 md:p-10 rounded-sm transition-all duration-300 relative ${
                 tier.featured 
-                  ? "bg-linear-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 text-white overflow-hidden" 
+                  ? "bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-md border border-white/20 text-white overflow-hidden" 
                   : "bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 text-white"
               }`}
             >
               {tier.featured && (
-                <div className="absolute inset-0 bg-linear-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
               )}
               
               <div className="relative">
